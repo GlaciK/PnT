@@ -1,0 +1,20 @@
+# kubectl apply -f service.yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-challenge-service
+spec:
+  selector:
+    app: docker-challenge
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8080 # port of service
+      targetPort: 8080 # port of application/pod
+      nodePort: 30000  # NodePort you want to expose
+
