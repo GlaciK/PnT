@@ -1,0 +1,13 @@
+#!/bin/bash
+PORT_TO_KILL=3000
+
+CONTAINER_ID=$(/usr/local/bin/docker ps -q --filter "expose=$PORT_TO_KILL")
+
+if [ -n "$CONTAINER_ID" ]; then
+/usr/local/bin/docker kill "$CONTAINER_ID"
+else
+echo "No container using port $PORT_TO_KILL found."
+fi
+
+STAGE 3
+/usr/local/bin/docker run -p 3000:3000 -d edosyhtptra/jenkins-demo
