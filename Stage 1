@@ -1,0 +1,4 @@
+#!/bin/sh
+/usr/local/bin/docker build -t edosyhtptra/jenkins-demo .
+
+
